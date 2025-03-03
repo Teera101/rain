@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 final_model = joblib.load("best_model.pkl")
 model = final_model["model"]
-label_encoder = final_model["label_encoders"]
+label_encoder = final_model["label_encoder"]
 
 app = Flask(_name_)
 CORS(app)
@@ -42,5 +42,5 @@ def predict():
         print(f"Server Error: {str(e)}")
         return jsonify({"error": str(e)}), 500
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
