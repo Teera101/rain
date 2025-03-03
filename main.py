@@ -7,7 +7,7 @@ final_model = joblib.load("best_model.pkl")
 model = final_model["model"]
 label_encoder = final_model["label_encoder"]
 
-app = Flask(_name_)
+app = Flask(__name__)
 CORS(app)
 
 @app.route("/")
